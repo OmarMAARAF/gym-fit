@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'exercices-list',
+    path: 'exercices-list/:bodyPart',
     loadChildren: () => import('./pages/exercices-list/exercices-list.module').then( m => m.ExercicesListPageModule)
   }
 ];
