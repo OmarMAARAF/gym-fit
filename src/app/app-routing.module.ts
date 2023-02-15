@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: 'exercices-list/:bodyPart',
     loadChildren: () => import('./pages/exercices-list/exercices-list.module').then( m => m.ExercicesListPageModule)
+  },
+  {
+    path: 'exercice-details',
+    loadChildren: () => import('./pages/exercice-details/exercice-details.module').then( m => m.ExerciceDetailsPageModule)
   }
 ];
 @NgModule({
