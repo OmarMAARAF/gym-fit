@@ -1,0 +1,41 @@
+page-exercice-details {
+    .image-container {
+        width: 100%;
+        height: 50vh;
+        position: relative;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+    .name-container {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+    .target-container {
+        text-align: center;
+        font-size: 1.2rem;
+        font-style: italic;
+        margin-bottom: 1rem;
+    }
+    ion-tabs {
+        --background: transparent;
+        --color: #000000;
+        ion-tab-button {
+            --background: #ffffff;
+            --color-selected: #ffffff;
+            --background-selected: #000000;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        ion-tab-bar {
+            border-top: 1px solid #000000;
+        }
+    }
+}

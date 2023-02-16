@@ -4,6 +4,12 @@ ion-avatar {
     width: 90px;
 }
 
+canvas {
+    --border-radius: 12px;
+    height: 90px;
+    width: 90px;
+}
+
 ion-label {
     display: flex;
     flex-direction: column;

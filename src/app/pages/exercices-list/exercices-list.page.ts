@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
 import axios from 'axios';
 import {Exercice} from "../../services/Exercice"
@@ -8,7 +8,15 @@ import {Exercice} from "../../services/Exercice"
   styleUrls: ['./exercices-list.page.scss'],
 })
 export class ExercicesListPage implements OnInit {
-
+  @ViewChild('canvas') canvas: ElementRef;
+  onGifLoad(event: Event, exercice: Exercice) {
+    const img = event.target as HTMLImageElement;
+    const canvas = img!.nextElementSibling as HTMLCanvasElement;
+    canvas.width = img.width;
+    canvas.height = img.height;
+    canvas!.getContext('2d')!.drawImage(img, 0, 0, img.width, img.height);
+    img.remove();
+  }
   ExrcicesList : Exercice []
   bodyPart:string | null ;
   constructor(private router: Router,private actRoute: ActivatedRoute) { 
@@ -16,6 +24,7 @@ export class ExercicesListPage implements OnInit {
     console.log(this.bodyPart)
     
   }
+  
 
   ngOnInit() {
     //get list of exercices:

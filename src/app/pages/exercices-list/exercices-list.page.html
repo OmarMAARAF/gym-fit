@@ -5,16 +5,20 @@
 </ion-header>
 
 <ion-content>
+
     <ion-list>
-        <ion-item *ngFor="let exercise of ExrcicesList" lines="full">
+        <ion-item *ngFor="let exercice of ExrcicesList" lines="full" routerLink="/exercice-details" [state]="{ exercice}">
+
             <ion-avatar slot="start">
-                <img [src]="exercise.gifUrl" alt="{{ exercise.name }}">
+                <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" (load)="onGifLoad($event, exercice)">
                 <canvas #canvas></canvas>
+
             </ion-avatar>
             <ion-label>
-                <h2>{{ exercise.name }}</h2>
-                <p>equipment: {{ exercise.equipment }}</p>
+                <h2>{{ exercice.name }}</h2>
+                <p>equipment: {{ exercice.equipment }}</p>
             </ion-label>
+
         </ion-item>
     </ion-list>
 </ion-content>

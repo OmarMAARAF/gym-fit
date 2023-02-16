@@ -1,11 +1,30 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>exercice-details</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ exercice.name }}</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    {{exercice | json}} img:{{gifUrl}}
-    <img [src]="gifUrl" (load)="onGifLoad($event)" />
-    <canvas #canvas></canvas>
+    <ion-button (click)="backButton()">Back</ion-button>
+    <ion-grid>
+        <ion-row>
+            <ion-col size-md="8" offset-md="2">
+                <div class="image-container">
+                    <img [src]="exercice.gifUrl" alt="{{ exercice.name }}">
+                </div>
+                <div class="name-container">
+                    {{ exercice.name }}
+                </div>
+                <div class="target-container">
+                    Target muscle group: {{ exercice.target }}
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
 </ion-content>
