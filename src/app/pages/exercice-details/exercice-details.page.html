@@ -1,9 +1,11 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>exercice-details</ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>exercice-details</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+    {{exercice | json}} img:{{gifUrl}}
+    <img [src]="gifUrl" (load)="onGifLoad($event)" />
+    <canvas #canvas></canvas>
 </ion-content>

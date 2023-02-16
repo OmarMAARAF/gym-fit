@@ -1,0 +1,23 @@
+ion-avatar {
+    --border-radius: 12px;
+    height: 90px;
+    width: 90px;
+}
+
+ion-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 16px;
+}
+
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+p {
+    font-size: 14px;
+    color: gray;
+}

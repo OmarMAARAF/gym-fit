@@ -5,5 +5,16 @@
 </ion-header>
 
 <ion-content>
-    <a routerLink="/exercice-details" [state]="{ id:1 , name:'Angular'}">Details</a>
+    <ion-list>
+        <ion-item *ngFor="let exercise of ExrcicesList" lines="full">
+            <ion-avatar slot="start">
+                <img [src]="exercise.gifUrl" alt="{{ exercise.name }}">
+                <canvas #canvas></canvas>
+            </ion-avatar>
+            <ion-label>
+                <h2>{{ exercise.name }}</h2>
+                <p>equipment: {{ exercise.equipment }}</p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
 </ion-content>
