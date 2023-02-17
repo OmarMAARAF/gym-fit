@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">gym-fit</string>
+    <string name="title_activity_main">gym-fit</string>
+    <string name="package_name">gym.fit</string>
+    <string name="custom_url_scheme">gym.fit</string>
+</resources>
