@@ -13,7 +13,7 @@
     <div class="image-container flex justify-center">
         <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" />
     </div>
-    <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4">
+    <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4 ">
         <h1 class="font-bold text-xl text-center">{{ exercice.name }}</h1>
         <div class="mt-5">
             <ion-grid class="text-center">
@@ -33,10 +33,12 @@
         </div>
         <p class="text-center mt-6">x{{rep}} Rep</p>
         <flx-circle-timer (click)="timer.start();countRep()" class="flex justify-center p-[-40px]" #timer color="#73E8C1" [duration]="duration" (onComplete)="onTimerComplete()">
-            <div class="controls">
-                <button type="button" [disabled]="timer.isTicking()" (click)="timer.start()"><ion-icon style=" color:#73E8C1" name="play" size="large"></ion-icon></button>
-            </div>
+
         </flx-circle-timer>
+
+        <div *ngIf="!timer.isTicking()" class="flex justify-center mt-[-70px] mb-[40px]">
+            <button type="button" [disabled]="timer.isTicking()" (click)="timer.start()"><ion-icon class=" text-[#73E8C1] " name="play" size="large"></ion-icon></button>
+        </div>
 
 
 
