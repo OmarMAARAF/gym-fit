@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Exercice } from '../../services/Exercice';
 import { Location } from '@angular/common';
 import { CircleTimerComponent } from '@flxng/circle-timer';
-import {ExercicesService} from "./../../exercices.service"
+import {BookmarkService} from "./../../services/bookmark.service"
 
 @Component({
   selector: 'app-exercice-details',

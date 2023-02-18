@@ -9,39 +9,45 @@ import {
   providedIn: 'root'
 })
 export class BookmarkService {
-  bookingListRef: AngularFireList<any>;
-  bookingRef: AngularFireObject<any>;
+  exerciseListRef: AngularFireList<any>;
+  exerciseRef: AngularFireObject<any>;
   constructor(private db: AngularFireDatabase) {}
   // Create
-  createBooking(apt: Appointment) {
-    this.bookingListRef = this.db.list('/exercise');
-    return this.bookingListRef.push({
+  createExercise(apt: Exercice) {
+    this.exerciseListRef = this.db.list('/exercise');
+    return this.exerciseListRef.push({
+      bodyPart: apt.bodyPart,
+      equipment: apt.equipment,
+      gifUrl: apt.gifUrl,
+      id: apt.id,
       name: apt.name,
-      email: apt.email,
-      mobile: apt.mobile,
+      target: apt.target,
     });
   }
   // Get Single
-  getBooking(id: string) {
-    this.bookingRef = this.db.object('/exercise/' + id);
-    return this.bookingRef;
+  getExercise(id: string) {
+    this.exerciseRef = this.db.object('/exercise/' + id);
+    return this.exerciseRef;
   }
   // Get List
-  getBookingList() {
-    this.bookingListRef = this.db.list('/exercise');
-    return this.bookingListRef;
+  getExerciseList() {
+    this.exerciseListRef = this.db.list('/exercise');
+    return this.exerciseListRef;
   }
   // Update
-  updateBooking(id, apt: Exercice) {
-    return this.bookingRef.update({
+  updateExercise(id, apt: Exercice) {
+    return this.exerciseRef.update({
+      bodyPart: apt.bodyPart,
+      equipment: apt.equipment,
+      gifUrl: apt.gifUrl,
+      id: apt.id,
       name: apt.name,
-      email: apt.email,
-      mobile: apt.mobile,
+      target: apt.target,
     });
   }
   // Delete
-  deleteBooking(id: string) {
-    this.bookingRef = this.db.object('/exercise/' + id);
-    this.bookingRef.remove();
+  deleteExercise(id: string) {
+    this.exerciseRef = this.db.object('/exercise/' + id);
+    this.exerciseRef.remove();
   }
 }
