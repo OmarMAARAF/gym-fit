@@ -31,7 +31,10 @@ export class ExerciceDetailsPage implements OnInit {
     canvas.height = img.height;
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
   }
-  
+  duration = 60 * 1000; // 10 seconds
+  onTimerComplete(): void {
+    console.log('timer completed!');
+  }
   backButton() {
     this.location.back();
   }

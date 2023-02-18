@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { ExerciceDetailsPageRoutingModule } from './exercice-details-routing.module';
 
 import { ExerciceDetailsPage } from './exercice-details.page';
+import { CircleTimerModule } from '@flxng/circle-timer';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ExerciceDetailsPageRoutingModule
+    ExerciceDetailsPageRoutingModule,
+    CircleTimerModule,
   ],
   declarations: [ExerciceDetailsPage]
 })

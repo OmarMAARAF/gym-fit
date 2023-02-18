@@ -32,6 +32,12 @@
             </ion-grid>
         </div>
         <p class="text-center mt-6">x3 Rep</p>
+        <flx-circle-timer (click)="timer.start()" class="flex justify-center p-[-40px]" #timer color="#73E8C1" [duration]="duration" (onComplete)="onTimerComplete()"> hey</flx-circle-timer>
+
+        <div class="controls">
+            <button type="button" [disabled]="timer.isTicking()" (click)="timer.start()">Start</button>
+            <button type="button" (click)="timer.init()">Reset</button>
+        </div>
 
     </div>
 </ion-content>
