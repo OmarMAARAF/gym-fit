@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Exercice } from '../../services/Exercice';
 import { Location } from '@angular/common';
+import { CircleTimerComponent } from '@flxng/circle-timer';
 
 @Component({
   selector: 'app-exercice-details',
@@ -10,8 +11,10 @@ import { Location } from '@angular/common';
 })
 export class ExerciceDetailsPage implements OnInit {
   @ViewChild('canvas') canvas: ElementRef;
+  @ViewChild('timer', { static: true }) timer: CircleTimerComponent;
   exercice: any;
   gifUrl: string;
+  rep: number = 3;
 
   constructor(
     private router: Router,
@@ -33,7 +36,18 @@ export class ExerciceDetailsPage implements OnInit {
   }
   duration = 60 * 1000; // 10 seconds
   onTimerComplete(): void {
-    console.log('timer completed!');
+    this.rep = this.rep - 1;
+    if (this.rep == 0) {
+      console.log('exercice done');
+    }
+  }
+  countRep(): void {
+    if (!this.timer.isTicking()) {
+      let audio = new Audio();
+      audio.src = '../../assets/audio/clock.mp3';
+      audio.load();
+      audio.play();
+    }
   }
   backButton() {
     this.location.back();
