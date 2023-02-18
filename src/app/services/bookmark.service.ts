@@ -26,11 +26,14 @@ export class BookmarkService {
   }
   // Get Single
   getExercise(id: string) {
-    this.exerciseListRef = this.db.list('/exercise/' + id);
+    this.exerciseListRef = this.db.list('/exercise/');
     console.log("ecercise :",this.exerciseListRef)
     return this.exerciseListRef;
   }
-  
+  checkExercise(id: string) {
+    this.exerciseRef = this.db.object('/exercise/' + id);
+    
+  }
   // Get List
   getExerciseList() {
     this.exerciseListRef = this.db.list('/exercise');

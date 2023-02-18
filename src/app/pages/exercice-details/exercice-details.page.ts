@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Exercice } from '../../services/Exercice';
 import { Location } from '@angular/common';
 import { CircleTimerComponent } from '@flxng/circle-timer';
-import {BookmarkService} from "./../../services/bookmark.service"
+import { BookmarkService } from './../../services/bookmark.service';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -17,7 +17,8 @@ export class ExerciceDetailsPage implements OnInit {
   exercice: any;
   gifUrl: string;
   rep: number = 3;
-  exist:boolean
+  exist: boolean = false;
+  key: string;
 
   constructor(
     private BookmarkService: BookmarkService,
@@ -32,11 +33,21 @@ export class ExerciceDetailsPage implements OnInit {
     console.log('this', this.exercice);
     this.gifUrl = this.exercice['gifUrl'];
     //check if the book mark exist
-    this.BookmarkService.getExercise(this.exercice['id']).valueChanges().subscribe(res => {
-      console.log("res",res)
-      res==null ? this.exist=false:this.exist=true
-    });
-    console.log("lenght",this.BookmarkService.getExercise(this.exercice['id']))
+    this.BookmarkService.getExercise(this.exercice['id'])
+      .snapshotChanges()
+      .subscribe((res): any => {
+        res.forEach((item) => {
+          let a: any = item.payload.toJSON();
+          if (a.id === this.exercice['id']) {
+            this.exist = true;
+            this.key = a['$key'];
+          }
+        });
+      });
+    console.log(
+      'lenght',
+      this.BookmarkService.getExercise(this.exercice['id']).valueChanges()
+    );
   }
   onGifLoad(event: Event) {
     const img = event.target as HTMLImageElement;
@@ -64,21 +75,35 @@ export class ExerciceDetailsPage implements OnInit {
     this.location.back();
   }
 
-  bookmark(){
-    console.log(this.exercice)
-    console.log("BookmarkService")
+  async bookmark () {
+    console.log(this.exercice);
+    console.log('BookmarkService');
 
-    this.BookmarkService.createExercise(this.exercice).then(async (res) => {
-      console.log(res)
+    if (!this.exist) {
+      this.BookmarkService.createExercise(this.exercice)
+        .then(async (res) => {
+          console.log(res);
+          const toast = await this.toastController.create({
+            message: 'Exercise added to your bookmarks!',
+            duration: 1500,
+            position: 'bottom',
+          });
+
+          await toast.present();
+        })
+        .catch((error) => console.log(error));
+    } else {
+      console.log(this.key);
+      this.exist =false
+      this.BookmarkService.deleteExercise(this.key);
       const toast = await this.toastController.create({
-        message: 'Exercise added to your bookmark!',
+        message: 'Exercise removed from your bookmarks!',
         duration: 1500,
-        position: 'bottom'
+        position: 'bottom',
       });
-  
+
       await toast.present();
-    })
-      .catch(error => console.log(error));
+    }
   }
   ngOnInit() {}
 }
