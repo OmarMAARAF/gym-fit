@@ -36,7 +36,7 @@ export class ExerciceDetailsPage implements OnInit {
       console.log("res",res)
       res==null ? this.exist=false:this.exist=true
     });
-    console.log(this.exist)
+    console.log("lenght",this.BookmarkService.getExercise(this.exercice['id']))
   }
   onGifLoad(event: Event) {
     const img = event.target as HTMLImageElement;
