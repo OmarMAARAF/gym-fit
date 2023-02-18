@@ -4,6 +4,7 @@ import { Exercice } from '../../services/Exercice';
 import { Location } from '@angular/common';
 import { CircleTimerComponent } from '@flxng/circle-timer';
 import {BookmarkService} from "./../../services/bookmark.service"
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-exercice-details',
@@ -16,17 +17,26 @@ export class ExerciceDetailsPage implements OnInit {
   exercice: any;
   gifUrl: string;
   rep: number = 3;
+  exist:boolean
 
   constructor(
+    private BookmarkService: BookmarkService,
     private router: Router,
     private actRoute: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private toastController: ToastController
   ) {
     console.log('state', this.router.getCurrentNavigation()!.extras.state);
     this.exercice =
       this.router.getCurrentNavigation()!.extras.state!['exercice'];
     console.log('this', this.exercice);
     this.gifUrl = this.exercice['gifUrl'];
+    //check if the book mark exist
+    this.BookmarkService.getExercise(this.exercice['id']).valueChanges().subscribe(res => {
+      console.log("res",res)
+      res==null ? this.exist=false:this.exist=true
+    });
+    console.log(this.exist)
   }
   onGifLoad(event: Event) {
     const img = event.target as HTMLImageElement;
@@ -53,8 +63,22 @@ export class ExerciceDetailsPage implements OnInit {
   backButton() {
     this.location.back();
   }
+
   bookmark(){
-    console.log("bookmark")
+    console.log(this.exercice)
+    console.log("BookmarkService")
+
+    this.BookmarkService.createExercise(this.exercice).then(async (res) => {
+      console.log(res)
+      const toast = await this.toastController.create({
+        message: 'Exercise added to your bookmark!',
+        duration: 1500,
+        position: 'bottom'
+      });
+  
+      await toast.present();
+    })
+      .catch(error => console.log(error));
   }
   ngOnInit() {}
 }

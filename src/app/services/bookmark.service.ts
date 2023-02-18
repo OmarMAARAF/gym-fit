@@ -27,6 +27,7 @@ export class BookmarkService {
   // Get Single
   getExercise(id: string) {
     this.exerciseRef = this.db.object('/exercise/' + id);
+    console.log("ecercise :",this.exerciseRef)
     return this.exerciseRef;
   }
   // Get List
@@ -35,7 +36,7 @@ export class BookmarkService {
     return this.exerciseListRef;
   }
   // Update
-  updateExercise(id, apt: Exercice) {
+  updateExercise(id:string, apt: Exercice) {
     return this.exerciseRef.update({
       bodyPart: apt.bodyPart,
       equipment: apt.equipment,

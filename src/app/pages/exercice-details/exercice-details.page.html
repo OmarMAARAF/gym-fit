@@ -5,7 +5,7 @@
         </ion-buttons>
         <ion-title class="text-center">{{ exercice.name }}</ion-title>
         <ion-buttons slot="end" (click)="bookmark()">
-            <ion-icon name="bookmark-outline" size="large"></ion-icon>
+            <ion-icon name="bookmark-outline" size="large" [class]="exist ? 'text-red-500' :''"></ion-icon>
         </ion-buttons>
 
     </ion-toolbar>
@@ -13,8 +13,8 @@
 
 <ion-content>
     <ion-back-button>back</ion-back-button>
-    <ion-button (click)="backButton()">Back</ion-button>
-    <div class="image-container flex justify-center">
+    <ion-button (click)="backButton()">Back {{exist}}</ion-button>
+    <div class="image-container flex justify-center ">
         <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" />
     </div>
     <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4 ">
