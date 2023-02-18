@@ -52,5 +52,8 @@ export class ExerciceDetailsPage implements OnInit {
   backButton() {
     this.location.back();
   }
+  bookmark(){
+    console.log("bookmark")
+  }
   ngOnInit() {}
 }

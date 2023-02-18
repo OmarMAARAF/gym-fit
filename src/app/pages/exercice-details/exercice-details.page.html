@@ -1,9 +1,13 @@
-<ion-header>
-    <ion-toolbar>
+<ion-header class="ion-no-border  my-3">
+    <ion-toolbar class="flex justify-between">
         <ion-buttons slot="start">
-            <ion-back-button></ion-back-button>
+            <ion-back-button icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
-        <ion-title>{{ exercice.name }}</ion-title>
+        <ion-title class="text-center">{{ exercice.name }}</ion-title>
+        <ion-buttons slot="end" (click)="bookmark()">
+            <ion-icon name="bookmark-outline" size="large"></ion-icon>
+        </ion-buttons>
+
     </ion-toolbar>
 </ion-header>
 
