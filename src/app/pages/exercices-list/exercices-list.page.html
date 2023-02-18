@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button  icon="chevron-back-outline"></ion-back-button>
+            <ion-back-button icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
         <ion-title>{{bodyPart}} workouts</ion-title>
     </ion-toolbar>
@@ -10,11 +10,14 @@
 <ion-content>
 
     <ion-list>
-        <ion-item *ngFor="let exercice of ExrcicesList" lines="full" routerLink="/exercice-details" [state]="{ exercice}" >
+        <ion-item *ngFor="let exercice of ExrcicesList" lines="full" routerLink="/exercice-details" [state]="{ exercice}">
 
             <ion-avatar slot="start">
+                <ion-skeleton-text [animated]="true"></ion-skeleton-text>
                 <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" (load)="onGifLoad($event, exercice)">
                 <canvas #canvas></canvas>
+
+
 
             </ion-avatar>
             <ion-label>

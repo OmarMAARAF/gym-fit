@@ -11,11 +11,13 @@ export class ExercicesListPage implements OnInit {
   @ViewChild('canvas') canvas: ElementRef;
   onGifLoad(event: Event, exercice: Exercice) {
     const img = event.target as HTMLImageElement;
+    const skeleton= img!.previousElementSibling
     const canvas = img!.nextElementSibling as HTMLCanvasElement;
     canvas.width = img.width;
     canvas.height = img.height;
     canvas!.getContext('2d')!.drawImage(img, 0, 0, img.width, img.height);
     img.remove();
+    skeleton!.remove()
   }
   ExrcicesList : Exercice []
   bodyPart:string | null ;

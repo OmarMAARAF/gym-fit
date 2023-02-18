@@ -8,23 +8,30 @@
 </ion-header>
 
 <ion-content>
+    <ion-back-button>back</ion-back-button>
     <ion-button (click)="backButton()">Back</ion-button>
-    <ion-grid>
-        <ion-row>
-            <ion-col size-md="8" offset-md="2">
-                <div class="image-container">
-                    <img [src]="exercice.gifUrl" alt="{{ exercice.name }}">
-                </div>
-                <div class="name-container">
-                    {{ exercice.name }}
-                </div>
-                <div class="target-container">
-                    Target muscle group: {{ exercice.target }}
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
+    <div class="image-container flex justify-center">
+        <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" />
+    </div>
+    <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4">
+        <h1 class="font-bold text-xl text-center">{{ exercice.name }}</h1>
+        <div class="mt-5">
+            <ion-grid class="text-center">
+                <ion-row>
+                    <ion-col class="flex justify-center"><img src="./../../../assets/equipement.png" /></ion-col>
+                    <ion-col class="flex justify-center"><img src="./../../../assets/target.png" /></ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>Equipment:</ion-col>
+                    <ion-col>Target:</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>{{ exercice.equipment }}</ion-col>
+                    <ion-col>{{ exercice.target }}</ion-col>
+                </ion-row>
+            </ion-grid>
+        </div>
+        <p class="text-center mt-6">x3 Rep</p>
 
-
-
+    </div>
 </ion-content>
