@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { BookmarkService } from './../services/bookmark.service';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -7,6 +9,9 @@ import { Component } from '@angular/core';
 })
 export class Tab3Page {
 
-  constructor() {}
+  constructor(
+    private BookmarkService: BookmarkService,
+    private toastController: ToastController
+  ) {}
 
 }
