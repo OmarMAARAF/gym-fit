@@ -20,9 +20,9 @@ export class ExercicesListPage implements OnInit {
     skeleton!.remove()
   }
   ExrcicesList : Exercice []
-  bodyPart:string | null ;
+  bodyPart:string |null  ;
   constructor(private router: Router,private actRoute: ActivatedRoute) { 
-    this.bodyPart=this.actRoute.snapshot.paramMap.get('bodyPart');
+    this.bodyPart=decodeURI(this.actRoute.snapshot.paramMap.get('bodyPart') || "");
     console.log(this.bodyPart)
     
   }
