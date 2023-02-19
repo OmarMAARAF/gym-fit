@@ -8,7 +8,8 @@
 </ion-header>
 
 <ion-content>
-    <ion-list>
+
+    <ion-list *ngIf="ExeciseList.length >0">
         <ion-item button detail="false" *ngFor="let exercice of ExeciseList" lines="full" routerLink="/exercice-details" [state]="{ exercice}">
             <ion-avatar slot="start">
                 <ion-skeleton-text [animated]="true"></ion-skeleton-text>
@@ -22,4 +23,9 @@
             <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
         </ion-item>
     </ion-list>
+    <div *ngIf="ExeciseList.length===0">
+
+
+
+    </div>
 </ion-content>
