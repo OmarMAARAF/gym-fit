@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import axios from "axios"
 
 @Component({
   selector: 'app-tab4',
@@ -10,6 +11,7 @@ export class Tab4Page implements OnInit {
   constructor() { }
 
   ngOnInit() {
+   
   }
 
 }

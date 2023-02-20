@@ -4,9 +4,14 @@
             <ion-back-button icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
         <ion-title class="text-center">{{ exercice.name }}</ion-title>
-        <ion-buttons slot="end" (click)="bookmark()">
+        <div slot="end" (click)="bookmark()" class="pr-4">
+            <img *ngIf="exist" src="./../../../assets/fullStar.png" />
+            <img *ngIf="!exist" src="./../../../assets/fullStar.png" />
+        </div>
+
+        <!-- <ion-buttons slot="end" (click)="bookmark()" class="p-2">
             <ion-icon name="bookmark-outline" size="large" [class]="exist ? 'text-red-500' :''"></ion-icon>
-        </ion-buttons>
+        </ion-buttons> -->
 
     </ion-toolbar>
 </ion-header>
