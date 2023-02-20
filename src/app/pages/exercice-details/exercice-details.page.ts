@@ -18,7 +18,7 @@ export class ExerciceDetailsPage implements OnInit {
   gifUrl: string;
   rep: number = 3;
   exist: boolean = false;
-  key: string;
+  key: string |null;
 
   constructor(
     private BookmarkService: BookmarkService,
@@ -30,7 +30,6 @@ export class ExerciceDetailsPage implements OnInit {
     console.log('state', this.router.getCurrentNavigation()!.extras.state);
     this.exercice =
       this.router.getCurrentNavigation()!.extras.state!['exercice'];
-    console.log('this', this.exercice);
     this.gifUrl = this.exercice['gifUrl'];
     //check if the book mark exist
     this.BookmarkService.getExercise(this.exercice['id'])
@@ -40,14 +39,11 @@ export class ExerciceDetailsPage implements OnInit {
           let a: any = item.payload.toJSON();
           if (a.id === this.exercice['id']) {
             this.exist = true;
-            this.key = a['$key'];
+            this.key = item.key;
+            console.log("key",this.key)
           }
         });
       });
-    console.log(
-      'lenght',
-      this.BookmarkService.getExercise(this.exercice['id']).valueChanges()
-    );
   }
   onGifLoad(event: Event) {
     const img = event.target as HTMLImageElement;
@@ -75,11 +71,9 @@ export class ExerciceDetailsPage implements OnInit {
     this.location.back();
   }
 
-  async bookmark () {
-    console.log(this.exercice);
-    console.log('BookmarkService');
-
+  async bookmark() {
     if (!this.exist) {
+      this.exist = true;
       this.BookmarkService.createExercise(this.exercice)
         .then(async (res) => {
           console.log(res);
@@ -88,21 +82,20 @@ export class ExerciceDetailsPage implements OnInit {
             duration: 1500,
             position: 'bottom',
           });
-
           await toast.present();
         })
         .catch((error) => console.log(error));
     } else {
       console.log(this.key);
-      this.exist =false
+      this.exist = false;
       this.BookmarkService.deleteExercise(this.key);
       const toast = await this.toastController.create({
         message: 'Exercise removed from your bookmarks!',
         duration: 1500,
         position: 'bottom',
       });
-
       await toast.present();
+
     }
   }
   ngOnInit() {}

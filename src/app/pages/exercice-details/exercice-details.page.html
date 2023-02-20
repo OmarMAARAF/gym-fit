@@ -5,8 +5,7 @@
         </ion-buttons>
         <ion-title class="text-center">{{ exercice.name }}</ion-title>
         <div slot="end" (click)="bookmark()" class="pr-4">
-            <img *ngIf="exist" src="./../../../assets/fullStar.png" />
-            <img *ngIf="!exist" src="./../../../assets/fullStar.png" />
+            <img [src]="exist?'./../../../assets/fullStar.png':'./../../../assets/star.png'" />
         </div>
 
         <!-- <ion-buttons slot="end" (click)="bookmark()" class="p-2">
@@ -23,7 +22,7 @@
         <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" />
     </div>
     <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4 ">
-        <h1 class="font-bold text-xl text-center">{{ exercice.name }}</h1>
+        <h1 class="font-bold text-xl text-center mx-3">{{ exercice.name }}</h1>
         <div class="mt-5">
             <ion-grid class="text-center">
                 <ion-row>

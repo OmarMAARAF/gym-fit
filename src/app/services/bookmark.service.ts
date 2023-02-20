@@ -51,7 +51,7 @@ export class BookmarkService {
     });
   }
   // Delete
-  deleteExercise(id: string) {
+  deleteExercise(id: string | null) {
     this.exerciseRef = this.db.object('/exercise/' + id);
     this.exerciseRef.remove();
   }
