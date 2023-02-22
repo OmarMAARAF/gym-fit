@@ -3,6 +3,18 @@
     font-family: 'Poppins', sans-serif;
 }
 
+ion-searchbar.custom {
+    --background: #edf9f5FF;
+    --placeholder-color: #929191;
+    --icon-color: #929191;
+    --clear-button-color: #929191;
+    --border-radius: 4px;
+}
+
+ion-searchbar.custom:focus {
+    color: #929191;
+}
+
 .scrolling-wrapper {
     overflow-x: scroll;
     overflow-y: hidden;
