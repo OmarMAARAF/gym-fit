@@ -1,14 +1,25 @@
 <ion-content [fullscreen]="true">
     <div class="h-auto">
-        <h1 class="mx-5 mb-3 mt-5 text-xl">
-            Hello, <span class="font-bold">Name</span>
-        </h1>
+        <div class=" flex mx-[12px] mt-5">
+            <a [routerLink]='["/tabs/tab4"]'>
+                <img src="./../../assets/avatar.png" class=" w-[50px]" />
+            </a>
+            <div>
+                <h1>
+                    Hello, <span class="font-bold">Name</span>
+                </h1>
+            </div>
+
+        </div>
+
+
+
         <p class="ml-5 mb-3">Get ready for today's workouts!</p>
-        <ion-searchbar placeholder="Search a workout" class="custom" (ionChange)="handleChange($event)" [(ngModel)]="search"></ion-searchbar>
+        <ion-searchbar placeholder="Search a workout" class="custom " (ionChange)="handleChange($event)" [(ngModel)]="search"></ion-searchbar>
     </div>
 
     <div class="scrolling-wrapper mx-[12px]">
-        <a class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-36  justify-center rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/chest"]'>
+        <a class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3  justify-center rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/chest"]'>
             <img src="./../../assets/bodyPart/chest.png" class="text-center" />
             <p class="text-center">Chest</p>
         </a>
