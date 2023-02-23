@@ -1,9 +1,9 @@
-<ion-header class="ion-no-border  pt-3 bg-white ">
+<ion-header class="ion-no-border pt-3 bg-white">
     <ion-toolbar class="flex justify-between bg-white toolBare">
         <ion-buttons slot="start">
             <ion-back-button icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
-        <ion-title class="text-center">{{ exercice.name }}</ion-title>
+        <ion-title class="text-center capitalize">{{ exercice.name }}</ion-title>
         <div slot="end" (click)="bookmark()" class="pr-4">
             <img [src]="exist?'./../../../assets/fullStar.png':'./../../../assets/star.png'" />
         </div>
@@ -11,18 +11,20 @@
         <!-- <ion-buttons slot="end" (click)="bookmark()" class="p-2">
             <ion-icon name="bookmark-outline" size="large" [class]="exist ? 'text-red-500' :''"></ion-icon>
         </ion-buttons> -->
-
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
     <!-- <ion-button (click)="backButton()">Back {{exist}}</ion-button> -->
-    <div class="image-container flex justify-center ">
+    <div class="image-container flex justify-center">
         <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" class="h-[500px] w-[360px]" />
     </div>
-    <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4 ">
-        <h1 class="font-bold text-xl text-center mx-3">{{ exercice.name }}</h1>
+
+    <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4">
+        <h1 class="font-bold text-xl text-center mx-3 capitalize">
+            {{ exercice.name }}
+        </h1>
+
         <div class="mt-5">
             <ion-grid class="text-center">
                 <ion-row>
@@ -39,16 +41,18 @@
                 </ion-row>
             </ion-grid>
         </div>
-        <p class="text-center mt-6">x{{rep}} Rep</p>
+        <p class="mx-3 my-4">
+            One of our most effective exercises is <span class="font-bold">{{ exercice.name }}</span>, which is specifically designed to target <span>{{ exercice.target }}</span>. This exercise will not only help you achieve your fitness goals, but it
+            will also improve your mood and boost your energy levels. With the right equipment, you can easily incorporate <span>{{ exercice.name }}</span> into your workout routine and start seeing results in no time.
+        </p>
+        <p class="text-center mt-6 text-bold">x{{rep}} Rep</p>
         <flx-circle-timer (click)="timer.start();countRep()" class="flex justify-center p-[-40px]" #timer color="#73E8C1" [duration]="duration" (onComplete)="onTimerComplete()">
-
         </flx-circle-timer>
 
         <div *ngIf="!timer.isTicking()" class="flex justify-center mt-[-70px] mb-[40px]">
-            <button type="button" [disabled]="timer.isTicking()" (click)="timer.start()"><ion-icon class=" text-[#73E8C1] " name="play" size="large"></ion-icon></button>
+            <button type="button" [disabled]="timer.isTicking()" (click)="timer.start()">
+        <ion-icon class="text-[#73E8C1]" name="play" size="large"></ion-icon>
+      </button>
         </div>
-
-
-
     </div>
 </ion-content>
