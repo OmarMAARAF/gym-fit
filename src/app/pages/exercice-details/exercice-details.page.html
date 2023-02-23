@@ -1,5 +1,5 @@
-<ion-header class="ion-no-border  my-3">
-    <ion-toolbar class="flex justify-between">
+<ion-header class="ion-no-border  pt-3 bg-white ">
+    <ion-toolbar class="flex justify-between bg-white toolBare">
         <ion-buttons slot="start">
             <ion-back-button icon="chevron-back-outline"></ion-back-button>
         </ion-buttons>
@@ -19,7 +19,7 @@
 
     <!-- <ion-button (click)="backButton()">Back {{exist}}</ion-button> -->
     <div class="image-container flex justify-center ">
-        <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" />
+        <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" class="h-[500px] w-[360px]" />
     </div>
     <div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4 ">
         <h1 class="font-bold text-xl text-center mx-3">{{ exercice.name }}</h1>

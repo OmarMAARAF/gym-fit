@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef  } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
+import { ExercicesService } from '../../services/exercices.service';
 import axios from 'axios';
 import {Exercice} from "../../services/Exercice"
 @Component({
@@ -8,6 +9,12 @@ import {Exercice} from "../../services/Exercice"
   styleUrls: ['./exercices-list.page.scss'],
 })
 export class ExercicesListPage implements OnInit {
+  ExrcicesList : Exercice []
+  bodyPart:string |null  ;
+  constructor(private router: Router,private actRoute: ActivatedRoute,private ExercicesService: ExercicesService) { 
+    this.bodyPart=decodeURI(this.actRoute.snapshot.paramMap.get('bodyPart') || "");
+    console.log(this.bodyPart)
+  }
   @ViewChild('canvas') canvas: ElementRef;
   onGifLoad(event: Event, exercice: Exercice) {
     const img = event.target as HTMLImageElement;
@@ -19,18 +26,13 @@ export class ExercicesListPage implements OnInit {
     img.remove();
     skeleton!.remove()
   }
-  ExrcicesList : Exercice []
-  bodyPart:string |null  ;
-  constructor(private router: Router,private actRoute: ActivatedRoute) { 
-    this.bodyPart=decodeURI(this.actRoute.snapshot.paramMap.get('bodyPart') || "");
-    console.log(this.bodyPart)
-    
-  }
+  
+  
   
 
   ngOnInit() {
     //get list of exercices:
-    const options = {
+    /* const options = {
       method: 'GET',
       url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${this.bodyPart}`,
       headers: {
@@ -44,7 +46,9 @@ export class ExercicesListPage implements OnInit {
       console.log(response.data);
     }).catch(function (error) {
       console.error(error);
-    });
+    }); */
+    this.ExrcicesList=this.ExercicesService.exerciseByMuscle(this.bodyPart);
+    console.log(this.ExrcicesList)
   }
 
   
