@@ -11,7 +11,10 @@
         </div>
 
         <!-- <p class="ml-5 mb-3">Get ready for today's workouts!</p> -->
-        <ion-searchbar placeholder="Search a workout" class="custom my-2" (ionChange)="handleChange($event)" [(ngModel)]="search"></ion-searchbar>
+        <form  (ngSubmit)="handleSearch($event)">
+            <ion-searchbar placeholder="Search a workout" class="custom my-2" name="search"  [(ngModel)]="search"></ion-searchbar>
+
+        </form>
     </div>
 
     <h1 class="mx-[12px] text-[20px] font-bold my-2">Body parts :</h1>
