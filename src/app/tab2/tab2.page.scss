@@ -41,19 +41,20 @@ ion-content {
     --background: #f8f8f8;
 }
 
+ion-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
 .day {
     border-radius: 50%;
     width: 32px;
     height: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 0 5px;
     cursor: pointer;
     &.today {
-        background-color: #99ccff;
-        color: white;
+        background-color: #ffcc66;
     }
 }
 
@@ -63,5 +64,15 @@ ion-content {
 
 .day.selected {
     background-color: #ffcc66;
-    color: white;
+}
+
+table {
+    table-layout: fixed;
+    width: 90%;
+    th,
+    td {
+        text-align: center;
+        padding: 8px;
+        margin-bottom: 12px;
+    }
 }
