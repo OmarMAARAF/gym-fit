@@ -1,0 +1,38 @@
+table {
+    width: 90%;
+    border-collapse: collapse;
+    th,
+    td {
+        text-align: center;
+        padding: 8px;
+        border: 1px solid #ccc;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    td {
+        position: relative;
+        .date {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        &.current-day::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background-color: #007aff;
+            border-radius: 50%;
+        }
+        &:hover {
+            background-color: #f2f2f2;
+        }
+        // Add 5px margin to the left and right
+        margin: 0 5px;
+    }
+}

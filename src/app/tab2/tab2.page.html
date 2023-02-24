@@ -1,17 +1,24 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Tab 2
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <table class="m-auto rounded-md">
+        <thead>
+            <tr>
+                <th *ngFor="let day of days" class="font-bold m-5">{{ day }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td *ngFor="let date of dates" (click)="handleClick(date)" [ngClass]="{ 'current-day': isCurrentDay(date), 'selected-day': isSelectedDate(date) }">
+                    <span class="date">{{ date.getDate() }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </ion-content>
