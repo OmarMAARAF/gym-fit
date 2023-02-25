@@ -13,7 +13,8 @@ import { Tab4Page } from './tab4.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    Tab4PageRoutingModule
+    Tab4PageRoutingModule,
+    
   ],
   declarations: [Tab4Page]
 })

@@ -1,4 +1,4 @@
-table {
+/* table {
     width: 90%;
     border-collapse: collapse;
     th,
@@ -36,9 +36,8 @@ table {
         margin: 0 5px;
     }
 }
+ */
 
-
-/* 
 ion-content {
     --background: #f8f8f8;
 }
@@ -49,17 +48,17 @@ ion-grid {
     overflow-x: auto;
 }
 
-.day {
+
+/* .day {
     border-radius: 50%;
-    width: 50%;
-    height: 50%;
+    width: 20px;
+    height: 20px;
     margin: 0 5px;
     padding-bottom: 20px;
     &.today {
         background-color: #79540c;
-        
     }
-}
+} */
 
 .day:hover {
     background-color: #f0f0f0;
@@ -72,10 +71,25 @@ ion-grid {
 table {
     table-layout: fixed;
     width: 90%;
+    padding-bottom: 10px;
     th,
     td {
         text-align: center;
         padding: 8px;
         padding-bottom: 11px;
+        &.today {
+            border-radius: 50%;
+            background-color: #79540c;
+            padding: 0 5px;
+            margin: 5px;
+        }
+        td.day {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
     }
-} */
+    tbody {
+        padding-bottom: 20px;
+    }
+}

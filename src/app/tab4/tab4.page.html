@@ -5,8 +5,11 @@
 </ion-header>
 
 <ion-content>
-    <ion-datetime class="m-auto bg-[#CFF8EB] rounded-md">
+    {{minDate.toISOString()}} {{maxDate}}
+    <ion-datetime class="m-auto bg-[#CFF8EB] rounded-md" min="{{minDate.toISOString()}}" max="{{maxDate.toISOString()}}">
         <span slot="time-label" class="font-bold text-black">Time :</span>
     </ion-datetime>
+    <ion-calendar [(ngModel)]="date" (change)="onChange($event)" name="date">
+    </ion-calendar>
 
 </ion-content>

@@ -1,17 +1,18 @@
-ion-col {
-    text-align: center;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.calendar-month-grid button[disabled] {
+    display: none !important;
 }
 
-.current {
-    background-color: lightblue;
+:host .calendar-day[disabled] {
+    display: none !important;
+    background: #000;
 }
 
-.selected {
-    border: 2px solid blue;
+ion-datetime {
+    .calendar-day[disabled] {
+        display: none !important;
+    }
+}
+
+.hide {
+    display: none !important;
 }

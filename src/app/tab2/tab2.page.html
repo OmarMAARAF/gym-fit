@@ -31,7 +31,7 @@
 </ion-header>
 
 <ion-content>
-    <ion-grid class="ion-text-center " style="overflow-x: auto">
+    <!-- <ion-grid class="ion-text-center " style="overflow-x: auto">
         <ion-row>
             <ion-col *ngFor="let date of dates" size="2">
                 <div class="day" [class.selected]="date.getTime() === selectedDate.getTime()" (click)="handleClick(date)" id="day-{{ date.getDay() }}">
@@ -40,10 +40,10 @@
                 </div>
             </ion-col>
         </ion-row>
-    </ion-grid>
-    <!-- <table class="m-auto rounded-md w-[90%] bg-[#CFF8EB] py-4 mt-4">
-        <thead>
-            <tr class="py-4"> 
+    </ion-grid> -->
+    <table class="m-auto rounded-md w-[90%] bg-[#CFF8EB] py-4 mt-4">
+        <thead class="mt-4">
+            <tr class="py-4">
                 <th *ngFor="let date of dates" class="font-bold mt-5">{{ date | date: 'EEE' }}</th>
             </tr>
         </thead>
@@ -53,6 +53,11 @@
                     <div class="day-number text-center">{{ date | date: 'd' }}</div>
                 </td>
             </tr>
+            <tr>
+                <td *ngFor="let date of dates">
+                    <div class="h-[-3px]"></div>
+                </td>
+            </tr>
         </tbody>
-    </table> -->
+    </table>
 </ion-content>
