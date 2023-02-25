@@ -1,0 +1,17 @@
+ion-col {
+    text-align: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.current {
+    background-color: lightblue;
+}
+
+.selected {
+    border: 2px solid blue;
+}

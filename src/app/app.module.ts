@@ -14,8 +14,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 
-// Calendar UI Module
-import { CalendarModule } from 'ion2-calendar';
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,8 +22,7 @@ import { CalendarModule } from 'ion2-calendar';
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
-    AngularFireDatabaseModule,
-    CalendarModule],
+    AngularFireDatabaseModule,],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

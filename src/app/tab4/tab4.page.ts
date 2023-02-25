@@ -8,7 +8,22 @@ import axios from "axios"
 })
 export class Tab4Page implements OnInit {
 
-  constructor() { }
+  days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+
+  selectedDay = '';
+
+  constructor() {
+    this.selectedDay = this.days[new Date().getDay()];
+  }
+
+  isCurrentDay(day: string): boolean {
+    return day === this.days[new Date().getDay()];
+  }
+
+  selectDay(day: string): void {
+    this.selectedDay = day;
+    console.log('Selected day:', day);
+  }
 
   ngOnInit() {
    

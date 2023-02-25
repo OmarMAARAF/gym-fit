@@ -1,4 +1,4 @@
-/* table {
+table {
     width: 90%;
     border-collapse: collapse;
     th,
@@ -35,8 +35,10 @@
         // Add 5px margin to the left and right
         margin: 0 5px;
     }
-} */
+}
 
+
+/* 
 ion-content {
     --background: #f8f8f8;
 }
@@ -49,12 +51,13 @@ ion-grid {
 
 .day {
     border-radius: 50%;
-    width: 32px;
-    height: 32px;
+    width: 50%;
+    height: 50%;
     margin: 0 5px;
-    cursor: pointer;
+    padding-bottom: 20px;
     &.today {
-        background-color: #ffcc66;
+        background-color: #79540c;
+        
     }
 }
 
@@ -73,6 +76,6 @@ table {
     td {
         text-align: center;
         padding: 8px;
-        margin-bottom: 12px;
+        padding-bottom: 11px;
     }
-}
+} */
