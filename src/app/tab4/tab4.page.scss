@@ -1,4 +1,4 @@
-.calendar-month-grid button[disabled] {
+/* .calendar-month-grid button[disabled] {
     display: none !important;
 }
 
@@ -15,4 +15,47 @@ ion-datetime {
 
 .hide {
     display: none !important;
+} */
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+    border-radius: 5px;
+    background-color: aquamarine;
+}
+
+th {
+    font-weight: bold;
+}
+
+th,
+td {
+    padding: 8px;
+}
+
+td.today {
+    background-color: #ccc;
+}
+
+td.selected {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+.arrow {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        background-color: #ccc;
+    }
+}
+
+tr:nth-child(n+2) {
+    display: none;
 }

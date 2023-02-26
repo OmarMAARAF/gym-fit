@@ -5,11 +5,37 @@
 </ion-header>
 
 <ion-content>
-    {{minDate.toISOString()}} {{maxDate}}
+    <!-- {{minDate.toISOString()}} {{maxDate}}
     <ion-datetime class="m-auto bg-[#CFF8EB] rounded-md" min="{{minDate.toISOString()}}" max="{{maxDate.toISOString()}}">
         <span slot="time-label" class="font-bold text-black">Time :</span>
-    </ion-datetime>
-    <ion-calendar [(ngModel)]="date" (change)="onChange($event)" name="date">
-    </ion-calendar>
+    </ion-datetime> -->
+
+    <table class="calendar rounded-md mt-4">
+        <thead>
+            <tr>
+                <th>
+                    <button (click)="previousWeek()"><ion-icon name="arrow-back-outline"></ion-icon></button>
+                </th>
+                <th colspan="5">{{ startDate | date: 'longDate' }}</th>
+                <th>
+                    <button (click)="nextWeek()"><ion-icon name="arrow-forward-outline"></ion-icon></button>
+                </th>
+            </tr>
+            <tr>
+                <th *ngFor="let day of days">{{ day }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let week of weeks">
+                <td *ngFor="let day of week" [class.today]="isToday(day.date)" [class.selected]="isSelected(day.date)" (click)="selectDay(day.date)">
+
+                    <div class="name font-bold">{{ day.date | date: 'EEE' }}</div>
+                    <div class="date">{{ day.date | date: 'd' }}</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
 
 </ion-content>

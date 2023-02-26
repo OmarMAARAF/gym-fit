@@ -31,8 +31,8 @@
                     <ion-col class="flex justify-center"><img src="./../../../assets/target.png" /></ion-col>
                 </ion-row>
                 <ion-row>
-                    <ion-col>Equipment:</ion-col>
-                    <ion-col>Target:</ion-col>
+                    <ion-col class="font-bold">Equipment:</ion-col>
+                    <ion-col class="font-bold">Target:</ion-col>
                 </ion-row>
                 <ion-row>
                     <ion-col>{{ exercice.equipment }}</ion-col>
@@ -40,8 +40,8 @@
                 </ion-row>
             </ion-grid>
         </div>
-        
-        <p class="text-center mt-6 font-bold text-[19px]" >x{{rep}} Rep</p>
+
+        <p class="text-center mt-6 font-bold text-[19px]">x{{rep}} Rep</p>
         <flx-circle-timer (click)="timer.start();countRep()" class="flex justify-center p-[-40px]" #timer color="#73E8C1" [duration]="duration" (onComplete)="onTimerComplete()">
         </flx-circle-timer>
 
@@ -50,7 +50,7 @@
         <ion-icon class="text-[#73E8C1]" name="play" size="large"></ion-icon>
       </button>
         </div>
-      </ion-card>
+    </ion-card>
 
     <!--<div class="bg-[#CFF8EB] mx-5 rounded-lg py-[20px] my-4">
         <h1 class="font-bold text-xl text-center mx-3 capitalize">
