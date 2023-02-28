@@ -32,7 +32,7 @@ export class ExercicesListPage implements OnInit {
 
   ngOnInit() {
     //get list of exercices:
-    /* const options = {
+    const options = {
       method: 'GET',
       url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${this.bodyPart}`,
       headers: {
@@ -46,9 +46,9 @@ export class ExercicesListPage implements OnInit {
       console.log(response.data);
     }).catch(function (error) {
       console.error(error);
-    }); */
-    this.ExrcicesList=this.ExercicesService.exerciseByMuscle(this.bodyPart);
-    console.log(this.ExrcicesList)
+    });
+    /* this.ExrcicesList=this.ExercicesService.exerciseByMuscle(this.bodyPart);
+    console.log(this.ExrcicesList) */
   }
 
   
