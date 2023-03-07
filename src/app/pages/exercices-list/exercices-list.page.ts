@@ -36,12 +36,12 @@ export class ExercicesListPage implements OnInit {
       method: 'GET',
       url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${this.bodyPart}`,
       headers: {
-        'X-RapidAPI-Key': '23d1c2af11msha06cfac7c98760dp100742jsn512292d57b35',
+        'X-RapidAPI-Key': '0944c690c5mshfb2e9ea11c35160p132c36jsn1b3128ad7040',
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
       }
     };
     axios.request(options).then(response=> {
-      this.ExrcicesList=response.data.slice(0,16)
+      this.ExrcicesList=response.data.slice(0,26)
       console.log("list",this.ExrcicesList)
       console.log(response.data);
     }).catch(function (error) {
