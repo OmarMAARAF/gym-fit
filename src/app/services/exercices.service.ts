@@ -8,7 +8,7 @@ import axios from "axios"
 export class ExercicesService {
 
   exerciseByMuscle (muscle:string | null):Exercice[] {
-    let exercice:Exercice[]=[]
+    let exercise:Exercice[]=[]
     const options = {
       method: 'GET',
       url: `https://exercisedb.p.rapidapi.com/exercises/bodyPart${muscle}`,
@@ -19,12 +19,33 @@ export class ExercicesService {
     };
     axios.request(options).then(function (response) {
       console.log(response.data);
-      exercice=response.data.slice(0,16)
+      exercise=response.data.slice(0,16)
       return response.data
     }).catch(function (error) {
       console.error(error);
     });
-    return exercice
+    return exercise
+  }
+  async exerciseByName(search: string): Promise<Exercice[]> {
+    const options = {
+      method: 'GET',
+      url: `https://exercisedb.p.rapidapi.com/exercises/name/${search}`,
+      headers: {
+        'X-RapidAPI-Key': '0944c690c5mshfb2e9ea11c35160p132c36jsn1b3128ad7040',
+        'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
+      }
+    };
+  
+    try {
+      const response = await axios.request(options);
+      console.log(response.data);
+      const exercise = response.data.slice(0, 16);
+      console.log("exe:", exercise);
+      return exercise;
+    } catch (error) {
+      console.error(error);
+      return [];
+    }
   }
 
 

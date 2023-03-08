@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
+  },
+  {
+    path: 'search/:search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   }
 ];
 

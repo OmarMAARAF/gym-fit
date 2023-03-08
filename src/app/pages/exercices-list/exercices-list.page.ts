@@ -9,7 +9,7 @@ import {Exercice} from "../../services/Exercice"
   styleUrls: ['./exercices-list.page.scss'],
 })
 export class ExercicesListPage implements OnInit {
-  ExrcicesList : Exercice []
+  ExrcicesList : Exercice []=[]
   bodyPart:string |null  ;
   constructor(private router: Router,private actRoute: ActivatedRoute,private ExercicesService: ExercicesService) { 
     this.bodyPart=decodeURI(this.actRoute.snapshot.paramMap.get('bodyPart') || "");
