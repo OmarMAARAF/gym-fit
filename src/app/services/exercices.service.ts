@@ -27,9 +27,10 @@ export class ExercicesService {
     return exercise
   }
   async exerciseByName(search: string): Promise<Exercice[]> {
+    const encodedSearch =encodeURI(search)
     const options = {
       method: 'GET',
-      url: `https://exercisedb.p.rapidapi.com/exercises/name/${search}`,
+      url: `https://exercisedb.p.rapidapi.com/exercises/name/${encodedSearch}`,
       headers: {
         'X-RapidAPI-Key': '0944c690c5mshfb2e9ea11c35160p132c36jsn1b3128ad7040',
         'X-RapidAPI-Host': 'exercisedb.p.rapidapi.com'
@@ -37,6 +38,7 @@ export class ExercicesService {
     };
   
     try {
+      console.log(encodedSearch)
       const response = await axios.request(options);
       console.log(response.data);
       const exercise = response.data.slice(0, 16);

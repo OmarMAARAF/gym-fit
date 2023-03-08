@@ -15,9 +15,7 @@ export class Tab1Page {
 
   handleSearch(e: any) {
     if(this.search !==""){
-      this.search=encodeURI(this.search || "");
-      console.log(this.search)
-      this.navCtrl.navigateForward('/search/'+this.search);
+      this.navCtrl.navigateForward('tabs/tab1/search/'+encodeURI(this.search));
     }
    
     
