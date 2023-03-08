@@ -1,27 +1,25 @@
 import { Component } from '@angular/core';
-import { ToastController } from '@ionic/angular';
-
+import { ToastController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  search:string
+  search: string="";
+  constructor(
+    private navCtrl: NavController,
+    private toastController: ToastController
+  ) {}
 
-  async handleSearch(e:any){
-    //console.log(e.target.value)
-   // console.log(e.target!.value.toLowerCase())
-   console.log(this.search)
-   const toast = await this.toastController.create({
-    message: 'tour  search '+this.search,
-    duration: 1500,
-    position: 'bottom',
-  });
-  await toast.present();
+  handleSearch(e: any) {
+    if(this.search !==""){
+      this.search=encodeURI(this.search || "");
+      console.log(this.search)
+      this.navCtrl.navigateForward('/search/'+this.search);
+    }
    
+    
   }
-  constructor(private toastController: ToastController) {}
-
 }
