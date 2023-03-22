@@ -4,7 +4,7 @@ import { Exercice } from '../../services/Exercice';
 import { Location } from '@angular/common';
 import { CircleTimerComponent } from '@flxng/circle-timer';
 import { BookmarkService } from './../../services/bookmark.service';
-import { ToastController } from '@ionic/angular';
+import { ToastController,AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-exercice-details',
@@ -26,7 +26,8 @@ export class ExerciceDetailsPage implements OnInit,OnDestroy {
     private router: Router,
     private actRoute: ActivatedRoute,
     private location: Location,
-    private toastController: ToastController
+    private toastController: ToastController,
+    private alertController: AlertController,
   ) {
     console.log('state', this.router.getCurrentNavigation()!.extras.state);
     this.exercice =
@@ -54,10 +55,29 @@ export class ExerciceDetailsPage implements OnInit,OnDestroy {
     canvas.getContext('2d').drawImage(img, 0, 0, img.width, img.height);
   }
   duration = 60 * 1000; // 10 seconds
-  onTimerComplete(): void {
+  async onTimerComplete() {
     this.rep = this.rep - 1;
     if (this.rep == 0) {
       console.log('exercice done');
+      const alert = await this.alertController.create({
+        header: 'congratulations!',
+        message:"you are one step closer to your goals",
+        buttons: [
+          {
+            text: 'OK',
+            role: 'confirm',
+            handler: () => {
+              this.location.back();
+            },
+          },
+        ],
+      });
+  
+      await alert.present();
+      const { role } = await alert.onDidDismiss();
+      if(role==="backdrop"){
+        this.location.back();
+      }
     }
   }
   countRep(): void {
