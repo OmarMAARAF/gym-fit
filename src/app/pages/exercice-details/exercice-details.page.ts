@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef,OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Exercice } from '../../services/Exercice';
 import { Location } from '@angular/common';
@@ -11,7 +11,7 @@ import { ToastController } from '@ionic/angular';
   templateUrl: './exercice-details.page.html',
   styleUrls: ['./exercice-details.page.scss'],
 })
-export class ExerciceDetailsPage implements OnInit {
+export class ExerciceDetailsPage implements OnInit,OnDestroy {
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('timer', { static: true }) timer: CircleTimerComponent;
   exercice: any;
@@ -19,6 +19,7 @@ export class ExerciceDetailsPage implements OnInit {
   rep: number = 3;
   exist: boolean = false;
   key: string |null;
+  audio=new Audio('../../assets/audio/clock.mp3')
 
   constructor(
     private BookmarkService: BookmarkService,
@@ -61,10 +62,10 @@ export class ExerciceDetailsPage implements OnInit {
   }
   countRep(): void {
     if (!this.timer.isTicking()) {
-      let audio = new Audio();
-      audio.src = '../../assets/audio/clock.mp3';
-      audio.load();
-      audio.play();
+      /* let audio = new Audio();
+      audio.src = '../../assets/audio/clock.mp3'; */
+      this.audio.load();
+      this.audio.play();
     }
   }
   backButton() {
@@ -99,4 +100,11 @@ export class ExerciceDetailsPage implements OnInit {
     }
   }
   ngOnInit() {}
+  ngOnDestroy() { 
+    if (this.timer.isTicking()) {
+      this.audio.load();
+      this.audio.pause();
+      this.audio.currentTime = 0;
+    }
+}
 }

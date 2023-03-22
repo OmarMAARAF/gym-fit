@@ -46,7 +46,7 @@
         </flx-circle-timer>
 
         <div *ngIf="!timer.isTicking()" class="flex justify-center mt-[-70px] mb-[40px]">
-            <button type="button" [disabled]="timer.isTicking()" (click)="timer.start()">
+            <button type="button" [disabled]="timer.isTicking()" (click)="timer.start();countRep()">
         <ion-icon class="text-[#73E8C1]" name="play" size="large"></ion-icon>
       </button>
         </div>
