@@ -25,7 +25,10 @@ export class Tab3Page implements OnInit {
     private BookmarkService: BookmarkService,
     private toastController: ToastController
   ) {}
-  
+  deleteExercice(id: string | null){
+    this.ExeciseList=[]
+    this.BookmarkService.deleteExercise(id)
+  }
 
   ngOnInit() {
     
@@ -34,10 +37,10 @@ export class Tab3Page implements OnInit {
       .subscribe((res): any => {
         res.forEach((item) => {
           let a: any = item.payload.toJSON();
-          console.log(a)
+          a.key=item.key
           this.ExeciseList.push(a)
         });
-        console.log(this.ExeciseList)
+        console.log("exercice List ",this.ExeciseList)
       });
   }
 }

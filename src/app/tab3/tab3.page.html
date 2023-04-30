@@ -10,18 +10,31 @@
 <ion-content>
 
     <ion-list *ngIf="ExeciseList.length >0">
-        <ion-item button detail="false" *ngFor="let exercice of ExeciseList" lines="full" routerLink="/exercice-details" [state]="{ exercice}">
-            <ion-avatar slot="start">
-                <ion-skeleton-text [animated]="true"></ion-skeleton-text>
-                <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" (load)="onGifLoad($event, exercice)" />
-                <canvas #canvas></canvas>
-            </ion-avatar>
-            <ion-label>
-                <h2>{{ exercice.name }}</h2>
-                <p>equipment: {{ exercice.equipment }}</p>
-            </ion-label>
-            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
-        </ion-item>
+
+
+        <div button detail="false" *ngFor="let exercice of ExeciseList" lines="full" class="parentItem">
+            <ion-item-sliding>
+                <ion-item lines="none" routerLink="/exercice-details" [state]="{ exercice}">
+                    <ion-avatar slot="start">
+                        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+                        <img [src]="exercice.gifUrl" alt="{{ exercice.name }}" (load)="onGifLoad($event, exercice)" />
+                        <canvas #canvas></canvas>
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{ exercice.name }}</h2>
+                        <p>equipment: {{ exercice.equipment }}</p>
+                    </ion-label>
+                    <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+                </ion-item>
+                <ion-item-options side="end" class="deleteOption" (click)="deleteExercice(exercice.key)">
+                    <ion-item-option color="danger">
+                        <ion-icon slot="start" name="trash"></ion-icon>
+                        Delete
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </div>
+
     </ion-list>
     <div *ngIf="ExeciseList.length===0">
 

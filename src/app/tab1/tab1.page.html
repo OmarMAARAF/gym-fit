@@ -1,4 +1,4 @@
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="bg-slate-300">
     <div class="h-auto">
         <div class="flex mx-[12px] mt-5">
             <a [routerLink]='["/tabs/tab4"]'>
@@ -12,12 +12,39 @@
 
         <!-- <p class="ml-5 mb-3">Get ready for today's workouts!</p> -->
         <form (ngSubmit)="handleSearch($event)">
-            <ion-searchbar placeholder="Search a workout" class="custom my-2" name="search" [(ngModel)]="search"></ion-searchbar>
+            <ion-searchbar placeholder="Search a workout" class="custom my-2 " name="search" [(ngModel)]="search"></ion-searchbar>
 
         </form>
     </div>
 
     <h1 class="mx-[12px] text-[20px] font-bold my-2">Body parts :</h1>
+    <div class="scrolling-wrapper mx-[12px]">
+        <a class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3  rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/chest"]'>
+            <img src="./../../assets/bodyPart/chest.png" class="m-auto" />
+            <p class="text-center  font-bold">Chest</p>
+        </a>
+        <div class="card w-[104px] flex bg-[#63c9a5] border-solid border-2 border-gray-00 flex-col mr-5 my-3 items-center justify-between rounded-md p-2" shadow-md [routerLink]='["/exercices-list/back"]'>
+            <img src="./../../assets/bodyPart/back.png" class="m-auto" />
+            <p class="text-center font-bold">Back</p>
+        </div>
+        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/upper%20legs"]'>
+            <img src="./../../assets/bodyPart/legs.png" class="m-auto" />
+            <p class="text-center font-bold">Legs</p>
+        </div>
+        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/upper%20legs"]'>
+            <img src="./../../assets/b1/shoulder.png" class="m-auto w-[64px]" />
+            <p class="text-center font-bold">shoulder</p>
+        </div>
+        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/waist"]'>
+            <img src="./../../assets/bodyPart/abs.png" class="m-auto" />
+            <p class="text-center font-bold">Waist</p>
+        </div>
+        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/upper%20arms"]'>
+            <img src="./../../assets/bodyPart/arms.png" class="m-auto" />
+            <p class="text-center font-bold">Arms</p>
+        </div>
+    </div>
+    <h1 class="mx-[12px] text-[20px] font-bold my-2">Equipment :</h1>
     <div class="scrolling-wrapper mx-[12px]">
         <a class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3  rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/chest"]'>
             <img src="./../../assets/bodyPart/chest.png" class="m-auto" />

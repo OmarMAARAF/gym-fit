@@ -4,9 +4,10 @@ ion-avatar {
     width: 100px;
 }
 
-ion-item {
+
+/* ion-item {
     padding: 8px;
-}
+} */
 
 canvas {
     --border-radius: 12px;
@@ -42,4 +43,29 @@ img {
 
 * {
     font-family: 'Poppins', sans-serif;
+}
+
+.parentItem {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    border-bottom: 1px solid #ebebeb;
+    ion-item {
+        margin: 0;
+        padding: 0;
+        .item-inner {
+            margin: 0;
+            padding: 0;
+        }
+        ion-item-options {
+            margin: 0;
+        }
+    }
+}
+
+ion-item-sliding {
+    width: 100%;
+}
+
+.item-inner {
+    padding: 0;
 }
