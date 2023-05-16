@@ -16,8 +16,7 @@ import 'firebase/compat/auth';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage {
-  providerFb: firebase.auth.FacebookAuthProvider;
-  
+  providerFb: firebase.auth.FacebookAuthProvider; 
   email: string ="";
   password: string= "";
   errorMessage: string ="";

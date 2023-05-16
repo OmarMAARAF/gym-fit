@@ -11,9 +11,6 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 //import 'firebase/auth';
 
-
-
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',

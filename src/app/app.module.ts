@@ -16,17 +16,20 @@ import { environment } from '../environments/environment';
 
 // Calendar UI Module
 import { CalendarModule } from 'ion2-calendar';
+import { Facebook } from '@ionic-native/facebook/ngx';
+import { IonicStorageModule } from '@ionic/storage-angular';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
+    IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     CalendarModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [Facebook,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
   

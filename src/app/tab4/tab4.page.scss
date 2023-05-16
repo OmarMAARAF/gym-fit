@@ -1,4 +1,4 @@
-/* .calendar-month-grid button[disabled] {
+/* /* .calendar-month-grid button[disabled] {
     display: none !important;
 }
 
@@ -17,6 +17,8 @@ ion-datetime {
     display: none !important;
 } */
 
+
+/* 
 table {
     border-collapse: collapse;
     margin: 0 auto;
@@ -57,4 +59,37 @@ td.selected {
 
 tr:nth-child(n+2) {
     display: none;
+}  */
+
+.spinner-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #2dd36f;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.image-over-div {
+    display: flex;
+    justify-content: center;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,14 +1,10 @@
-<ion-header>
+<!-- <ion-header>
     <ion-toolbar>
         <ion-title>tab4</ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <!-- {{minDate.toISOString()}} {{maxDate}}
-    <ion-datetime class="m-auto bg-[#CFF8EB] rounded-md" min="{{minDate.toISOString()}}" max="{{maxDate.toISOString()}}">
-        <span slot="time-label" class="font-bold text-black">Time :</span>
-    </ion-datetime> -->
 
     <table class="calendar rounded-md mt-4">
         <thead>
@@ -38,4 +34,109 @@
 
 
 
+</ion-content> -->
+<ion-header>
+    <ion-toolbar style="--background: #73e8c1">
+        <!-- <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons> -->
+        <ion-buttons slot="end">
+            <ion-button (click)="logout()">
+                <ion-icon name="power"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title></ion-title>
+        <!-- <ion-buttons slot="end">
+        <ion-button>
+          <ion-icon name="create"></ion-icon>
+        </ion-button>
+        <ion-button>
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </ion-buttons> -->
+    </ion-toolbar>
+</ion-header>
+
+<!-- <ion-content style="--background: #EDF9F5;"> -->
+<ion-content>
+    <div *ngIf="loading===false">
+        <div class="empty bg-secondary"></div>
+        <div class="ion-text-center image-over-div">
+            <img [src]="image" alt="" class="image-round border-white" />
+        </div>
+        <div class="ion-text-center mt-2" style="font-weight: bold">
+            <h4>{{ username }}</h4>
+        </div>
+
+        <ion-grid fixed class="">
+            <ion-row class="ion-no-padding">
+                <ion-col size="4">
+                    <div class="ion-text-center"><small style="font-weight: bold">Height</small>
+
+                        <br /><span class="text-statics-big text-primary"> {{ height }} cm </span>
+
+                    </div>
+                </ion-col>
+                <ion-col size="4">
+                    <div class="ion-text-center"><small style="font-weight: bold">Weight</small>
+
+                        <br />
+                        <span class="text-statics-big text-primary"> {{ weight }} kg </span>
+                    </div>
+                </ion-col>
+                <ion-col size="4">
+                    <div class="ion-text-center">
+                        <small style="font-weight: bold">Age</small>
+                        <br /><span class="text-statics-big text-primary"> {{ age }} ans</span>
+
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <div class="ion-padding">
+            <ion-grid class="ion-no-padding">
+                <ion-row>
+                    <ion-col size="6">
+                        <strong class="text-tertiary">Username :</strong> <br /><br />
+                        <small class="text-muted" style="padding-left: 20px">
+              {{ username}}</small
+            ><br /><br />
+          </ion-col>
+          <!--  <ion-col size="6">
+            <strong class="text-tertiary">Email</strong> <br>
+            <small class="text-muted">juanito.perez@site.com</small>
+                    </ion-col> -->
+                </ion-row>
+                <ion-row>
+                    <ion-col size="10">
+                        <strong class="text-tertiary">Email :</strong> <br /><br />
+                        <small class="text-muted" style="padding-left: 20px">{{ email }}
+            </small>
+                        <br /><br />
+                    </ion-col>
+                    <!--  <ion-col size="6">
+            <strong class="text-tertiary">Location</strong> <br>
+            <small class="text-muted">México</small>
+          </ion-col> -->
+                </ion-row>
+                <ion-row>
+                    <ion-col size="6">
+                        <strong class="text-tertiary">Gender : </strong> <br /><br />
+                        <small class="text-muted" style="padding-left: 20px">
+              {{ gender }}</small
+            >
+          </ion-col>
+          <!-- <ion-col size="6">
+            <strong class="text-tertiary">Address</strong> <br>
+            <small class="text-muted">Av. Siempre viva 123</small>
+                    </ion-col> -->
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
+    <div *ngIf="loading===true">
+        <div class="spinner-container">
+            <div class="spinner"></div>
+        </div>
+    </div>
 </ion-content>

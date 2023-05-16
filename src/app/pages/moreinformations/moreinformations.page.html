@@ -1,0 +1,38 @@
+<ion-content>
+  <br><br>
+  <h2>MORE INFORMATION</h2>
+  <br>
+  <ion-item class="gender-item">
+    <ion-button (click)="selectGender('male')" [color]="gender === 'male' ? '#474646' : 'default'" class="gender-button" [class.active]="gender === 'male'">
+      <ion-icon class="icon-gender" name="man-outline" ></ion-icon>
+      <br><br><br>
+        Male
+    </ion-button>
+    <ion-button (click)="selectGender('female')" [color]="gender === 'female' ? '#474646' : 'default'" class="gender-button" [class.active]="gender === 'female'">
+      <ion-icon class="icon-gender" name="woman-outline"></ion-icon>
+      <br> <br><br>
+      Female
+    </ion-button>
+  </ion-item>
+  <ion-item>
+    <ion-range [(ngModel)]="weight" color="primary" min="0" max="300" [value]="50" [pin]="true" step="1" pin="true">
+      <ion-label slot="start">Weight</ion-label>
+      <ion-label slot="end">{{weight}} kg</ion-label>
+    </ion-range>
+  </ion-item>
+  <br><br>
+  <ion-item>
+    <ion-range [(ngModel)]="height" color="primary" min="0" max="300" [value]="50" [pin]="true" snaps="true" step="1" pin="true">
+      <ion-label slot="start">Height</ion-label>
+      <ion-label slot="end">{{height}} cm</ion-label>
+    </ion-range>
+  </ion-item>
+  <br><br>
+  <ion-item>
+    <ion-range [(ngModel)]="age" color="primary" min="0" max="150" snaps="true" step="1" pin="true">
+      <ion-label slot="start">Age</ion-label>
+      <ion-label slot="end">{{age}} ans</ion-label>
+    </ion-range>
+  </ion-item>
+  <ion-button (click)="save()" expand="block">VALIDER</ion-button>
+</ion-content>
