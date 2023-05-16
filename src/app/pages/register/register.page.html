@@ -1,0 +1,36 @@
+<ion-content class="ion-padding">
+  <img src="../../assets/img/login_icon.png" alt="Description de l'image">
+  <h1>Sign Up</h1>
+  <br><br>
+  <h3>It's fast and easy.</h3>
+  <form>
+    <div class="form-field">
+      <label label="Username" position="floating" [ngClass]="focused ? 'label-focused' : ''">Username</label>
+      <input label="Username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" [type]="type" (focus)="focused = true" (blur)="onBlur($event)" />
+    </div>
+    <div class="form-field">
+      <label label="Email ID"  position="floating" [ngClass]="focused ? 'label-focused' : ''" >Email ID</label>
+      <input label="Email ID" type="email" [(ngModel)]="email" [ngModelOptions]="{standalone: true}" [type]="type" (focus)="focused = true" (blur)="onBlur($event)"/>
+    </div>
+    <div class="form-field">
+      <label label="password" position="floating" [ngClass]="focused ? 'label-focused' : ''">Password</label>
+      <input label="password" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" maxlength="20" (focus)="focused = true" (blur)="onBlur($event)" />
+    </div>
+    
+    
+   <!--  <div class="form-field">
+      <label label="password"  position="floating" [ngClass]="focused ? 'label-focused' : ''">Password</label>
+      <input label="password"  type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" [type]="type" (focus)="focused = true" (blur)="onBlur($event)" />
+    </div> -->
+    <div class="form-field">
+      <label label="password" position="floating" [ngClass]="focused ? 'label-focused' : ''">Repassword</label>
+      <input label="password" type="password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}" maxlength="20" (focus)="focused = true" (blur)="onBlur($event)" />
+    </div>
+    
+    <a routerLink="#" class="forgot-password-link">Forgot Password?</a>
+    <br><br>
+    <ion-button expand="block" (click)="registerWithEmail()">Register</ion-button>
+    <p *ngIf="errorMessage">{{errorMessage}}</p>
+    <app-icon-button (click)="FacebookLogin()" icon='logo-facebook' label='Connect with Facebook'></app-icon-button>
+  </form>
+</ion-content>
