@@ -77,6 +77,9 @@ export class Tab4Page implements OnInit {
       this.weight = userData.weight;
       this.height = userData.height;
       this.gender = userData.gender;
+      this.storage.set('username', this.username);
+      this.storage.set('email', this.email);
+      this.storage.set('gender', this.gender);
       if (this.gender === 'male') {
         this.image = '../../assets/img/avatarMen.png';
       } else {

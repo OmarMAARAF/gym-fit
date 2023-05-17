@@ -12,13 +12,26 @@ export class Tab1Page implements OnInit {
   search: string = "";
   username: string = "";
   day: string = "";
+  image: string = "";
 
   constructor(
     private navCtrl: NavController,
     private toastController: ToastController,
     private storage: Storage,
     private platform: Platform
-  ) {}
+  ) {
+    this.platform.ready().then(() => {
+      this.storage.create();
+      this.storage.get('gender').then((value) => {
+        console.log(value)
+        if (value === 'male') {
+          this.image = './../../assets/img/avatarMen.png';
+        } else {
+          this.image = './../../assets/img/avatarwomen.png';
+        } 
+      });
+  })
+}
 
   handleSearch(e: any) {
     if (this.search !== "") {

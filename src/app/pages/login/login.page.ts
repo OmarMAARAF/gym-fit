@@ -51,10 +51,9 @@ export class LoginPage {
       await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
       this.storage.set('email', this.email);
       this.storage.set('password', this.password);
-      this.router.navigateByUrl('/tabs/tab1');
+      this.router.navigateByUrl('/tabs/tab4');
     } catch (error) {
       console.log(error);
-      //this.errorMessage = error.message;
     }
   }
   FacebookLogin(){
