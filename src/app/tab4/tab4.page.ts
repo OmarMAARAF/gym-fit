@@ -126,6 +126,7 @@ export class Tab4Page implements OnInit {
   }
   logout()
   {
+    this.storage.clear();
     this.router.navigateByUrl('/onBoarding');
   }
   getUserData(email: string) {

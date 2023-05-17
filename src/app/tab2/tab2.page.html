@@ -1,27 +1,4 @@
-<!-- <ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>
-            Tab 2
-        </ion-title>
-    </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-    <table class="m-auto rounded-md">
-        <thead>
-            <tr>
-                <th *ngFor="let day of days" class="font-bold m-5">{{ day }}</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td *ngFor="let date of dates" (click)="handleClick(date)" [ngClass]="{ 'current-day': isCurrentDay(date), 'selected-day': isSelectedDate(date) }">
-                    <span class="date">{{ date.getDate() }}</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</ion-content> -->
+<!-- 
 <ion-header>
     <ion-toolbar>
         <ion-title>
@@ -31,16 +8,6 @@
 </ion-header>
 
 <ion-content>
-    <!-- <ion-grid class="ion-text-center " style="overflow-x: auto">
-        <ion-row>
-            <ion-col *ngFor="let date of dates" size="2">
-                <div class="day" [class.selected]="date.getTime() === selectedDate.getTime()" (click)="handleClick(date)" id="day-{{ date.getDay() }}">
-                    <div class="day-name ">{{ date | date: 'EEE' }}</div>
-                    <div class="day-number ">{{ date | date: 'd' }}</div>
-                </div>
-            </ion-col>
-        </ion-row>
-    </ion-grid> -->
     <table class="m-auto rounded-md w-[90%] bg-[#CFF8EB] py-4 mt-4">
         <thead class="mt-4">
             <tr class="py-4">
@@ -60,4 +27,47 @@
             </tr>
         </tbody>
     </table>
+</ion-content> -->
+<ion-content [fullscreen]="true" class="ion-padding">
+
+    <ion-datetime #myDatetime presentation="date" color="teal" mode="ios" display-format="DD/MM/YYYY" min="2000" max="{{ maxDate }}" [yearValues]="yearValue" [(ngModel)]="selectedDate" (ionChange)="onDateChange()" [dayValues]="[1,2,3,4,5,6,7,8,9,10,11]"></ion-datetime>
+
+    <ion-grid>
+        <ion-col>
+            <ion-row>
+                <ion-text class="ion-text-capitalize">
+                    <h3>{{currentDate }}</h3>
+                </ion-text>
+            </ion-row>
+            <ion-row style="display: flex; align-items: center;">
+                <ion-icon name="calendar-clear-outline"></ion-icon>
+                <ion-text class="ion-text-capitalize ion-margin-horizontal ion-text-center">
+                    Pull Day
+                </ion-text>
+            </ion-row>
+
+            <ion-list>
+                <ion-item-sliding *ngFor="let workOut of workOutPerDay">
+                    <ion-item class="padding-vertical" detail="true">
+                        <ion-thumbnail item-left>
+                            <img [src]="workOut.image">
+                        </ion-thumbnail>
+                        <ion-label class="ion-margin-start">
+                            <h2>{{workOut.name}}</h2>
+                        </ion-label>
+                    </ion-item>
+
+
+
+                </ion-item-sliding>
+            </ion-list>
+        </ion-col>
+    </ion-grid>
+
+    <ion-col>
+
+    </ion-col>
+
+
+
 </ion-content>

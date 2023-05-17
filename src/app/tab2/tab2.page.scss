@@ -1,43 +1,4 @@
-/* table {
-    width: 90%;
-    border-collapse: collapse;
-    th,
-    td {
-        text-align: center;
-        padding: 8px;
-        border: 1px solid #ccc;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-    td {
-        position: relative;
-        .date {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        &.current-day::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 8px;
-            height: 8px;
-            background-color: #007aff;
-            border-radius: 50%;
-        }
-        &:hover {
-            background-color: #f2f2f2;
-        }
-        // Add 5px margin to the left and right
-        margin: 0 5px;
-    }
-}
- */
-
+/* 
 ion-content {
     --background: #f8f8f8;
 }
@@ -49,16 +10,6 @@ ion-grid {
 }
 
 
-/* .day {
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-    padding-bottom: 20px;
-    &.today {
-        background-color: #79540c;
-    }
-} */
 
 .day:hover {
     background-color: #f0f0f0;
@@ -91,5 +42,39 @@ table {
     }
     tbody {
         padding-bottom: 20px;
+    }
+} */
+
+ion-col {
+    ion-row {
+        ion-text {
+            h3 {
+                font-weight: bold;
+            }
+        }
+        ion-icon {
+            width: 30px;
+            height: 30px;
+        }
+    }
+    ion-list {
+        ion-item {
+            --min-height: 120px;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            ion-label {
+                h2 {
+                    font-weight: bold;
+                }
+            }
+        }
+        h2 {
+            margin-left: 10px !important;
+            font-size: 20px;
+            font-weight: 500;
+            font-family: 'Roboto', sans-serif;
+        }
     }
 }
