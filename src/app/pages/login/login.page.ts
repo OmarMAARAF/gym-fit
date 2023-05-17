@@ -8,6 +8,8 @@ import { Facebook } from '@ionic-native/facebook/ngx';
 //import * as firebase from 'firebase/app';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import { Storage } from '@ionic/storage-angular';
+
 //import 'firebase/auth';
 
 @Component({
@@ -36,14 +38,20 @@ export class LoginPage {
   constructor(private afAuth: AngularFireAuth, private router: Router , 
     public afDB: AngularFireDatabase,
     private fb: Facebook,
-    public platform: Platform) {
+    private storage: Storage, private platform: Platform) {
       this.providerFb = new firebase.auth.FacebookAuthProvider();
+      this.platform.ready().then(() => {
+        this.storage.create();
+      });
+      
     }
 
   async loginWithEmail() {
     try {
       await this.afAuth.signInWithEmailAndPassword(this.email, this.password);
-      this.router.navigateByUrl('/profilee?email='+ this.email );
+      this.storage.set('email', this.email);
+      this.storage.set('password', this.password);
+      this.router.navigateByUrl('/tabs/tab1');
     } catch (error) {
       console.log(error);
       //this.errorMessage = error.message;

@@ -1,6 +1,6 @@
-<ion-grid>
-    <div class="bg-[#CFF8EB] py-3 mt-4 rounded-lg">
-        <ion-row class="w-[360px] mt-5">
+<ion-content>
+    <div class="bg-[#CFF8EB] py-3 mx-auto rounded-lg w-[360px] mt-5">
+        <ion-row>
             <ion-col size="1">
                 <ion-icon name="arrow-back" (click)="previousWeek()"></ion-icon>
             </ion-col>
@@ -13,7 +13,7 @@
         </ion-row>
         <ion-row>
             <ion-col size="12" class="text-center">
-                <h3>{{ getCurrentDayName() }}</h3>
+                <h3 class="font-bold">{{ getCurrentDayName() }}</h3>
             </ion-col>
         </ion-row>
         <ion-row class="w-[360px] mt-3">
@@ -31,7 +31,28 @@
             </ion-col>
         </ion-row>
     </div>
-</ion-grid>
+    <div class="flex mt-4 ml-5">
+        <img src="./../../assets/img/workoutday.png" />
+        <h2 class="font-bold  ml-4 mt-1">{{dayName}}</h2>
+    </div>
+    <ion-list class=" mt-1 mx-auto">
+        <ion-item button detail="false" *ngFor="let exercice of ExrcicesList" lines="full" routerLink="/exercice-details" [state]="{ exercice}">
+            <ion-avatar slot="start">
+                <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+                <img class="exercice-image" [src]="exercice.gifUrl" alt="{{ exercice.name }}" (load)="onGifLoad($event, exercice)" />
+                <canvas #canvas></canvas>
+            </ion-avatar>
+            <ion-label>
+                <h2 class="textTitle">{{ exercice.name }}</h2>
+                <p class="description">equipment: {{ exercice.equipment }}</p>
+            </ion-label>
+            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+        </ion-item>
+        <div *ngIf="ExrcicesList.length===0" class="flex items-center justify-center h-full mt-[150px]">
+            <img src="./../../assets/img/rest_day.png" />
+        </div>
+    </ion-list>
+</ion-content>
 
 
 

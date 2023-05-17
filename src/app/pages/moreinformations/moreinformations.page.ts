@@ -54,6 +54,6 @@ export class MoreinformationsPage implements OnInit {
       this.storage.set('email', this.email);
       this.storage.set('password', this.password);
 
-    this.router.navigateByUrl('/tabs/tab4?username=' + this.username + '&email=' + this.email);
+    this.router.navigateByUrl('/tabs/tab1');
   }
 }

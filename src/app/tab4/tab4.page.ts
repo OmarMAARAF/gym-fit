@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Renderer2, QueryList, ViewChildren ,OnInit} from '@angular/core';
+import { Component ,OnInit} from '@angular/core';
 
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
@@ -15,65 +15,6 @@ import { Platform } from '@ionic/angular';
   styleUrls: ['./tab4.page.scss'],
 })
 export class Tab4Page implements OnInit {
-  /* weeks: any[] = [];
-  days: string[] = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  startDate: Date;
-
-  selectedDate: Date | null = null;
-
-  constructor() {
-    this.startDate = new Date();
-    this.startDate.setDate(this.startDate.getDate() - this.startDate.getDay());
-    
-
-    this.updateWeeks();
-  }
-
-  isToday(date: Date): boolean {
-    const today = new Date();
-    return date.getDate() === today.getDate() &&
-           date.getMonth() === today.getMonth() &&
-           date.getFullYear() === today.getFullYear();
-  }
-
-  isSelected(date: Date): boolean {
-    return this.selectedDate != null &&
-           date.getDate() === this.selectedDate.getDate() &&
-           date.getMonth() === this.selectedDate.getMonth() &&
-           date.getFullYear() === this.selectedDate.getFullYear();
-  }
-
-  selectDay(date: Date): void {
-    this.selectedDate = date;
-    console.log(formatDate(date, 'EEEE', 'en-US'));
-  }
-
-  nextWeek(): void {
-    this.startDate.setDate(this.startDate.getDate() + 7);
-    this.updateWeeks();
-  }
-
-  previousWeek(): void {
-    this.startDate.setDate(this.startDate.getDate() - 7);
-    this.updateWeeks();
-  }
-
-  updateWeeks(): void {
-    this.weeks = [];
-
-    for (let i = 0; i < 7; i++) {
-      const week = [];
-      for (let j = 0; j < 7; j++) {
-        const date = new Date(this.startDate);
-        date.setDate(this.startDate.getDate() + (i * 7) + j);
-        const name = formatDate(date, 'EEEE', 'en-US');
-        week.push({ date, name });
-      }
-      this.weeks.push(week);
-    }
-  }
- */
-
   userId: string="";
   email: string="";
   username: string="m";
@@ -104,24 +45,22 @@ export class Tab4Page implements OnInit {
       this.storage.get('email').then((value) => {
         console.log(value)
         this.email  = value;
+        this.auth.user.subscribe(user => {
+          console.log(user)
+          if (user) {
+            this.userId = user.uid;
+            this.getUserData(this.email);
+            this.getUserData(this.userId);
+            this.loading = false;
+          }
+        }); 
       });
       this.storage.get('username').then((value) => {
         this.username = value;
       });
     });
     
-    /* this.route.queryParams.subscribe(params => {
-      this.username = params['username'];
-      this.email = params['email'];
-    });*/
-    this.auth.user.subscribe(user => {
-      if (user) {
-        this.userId = user.uid;
-        this.getUserData(this.email);
-        this.getUserData(this.userId);
-        this.loading = false;
-      }
-    }); 
+    
     
   }
   logout()

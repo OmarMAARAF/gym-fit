@@ -9,6 +9,7 @@ import {Exercice} from "../services/Exercice"
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page implements OnInit {
+  loading : boolean = false;
   @ViewChild('canvas') canvas: ElementRef;
   onGifLoad(event: Event, exercice: Exercice) {
     const img = event.target as HTMLImageElement;

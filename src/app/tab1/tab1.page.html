@@ -31,10 +31,6 @@
             <img src="./../../assets/bodyPart/legs.png" class="m-auto" />
             <p class="text-center font-bold">Legs</p>
         </div>
-        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/upper%20legs"]'>
-            <img src="./../../assets/b1/shoulder.png" class="m-auto w-[64px]" />
-            <p class="text-center font-bold">shoulder</p>
-        </div>
         <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/waist"]'>
             <img src="./../../assets/bodyPart/abs.png" class="m-auto" />
             <p class="text-center font-bold">Waist</p>
@@ -44,31 +40,13 @@
             <p class="text-center font-bold">Arms</p>
         </div>
     </div>
-    <h1 class="mx-[12px] text-[20px] font-bold my-2">Equipment :</h1>
-    <div class="scrolling-wrapper mx-[12px]">
-        <a class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3  rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/chest"]'>
-            <img src="./../../assets/bodyPart/chest.png" class="m-auto" />
-            <p class="text-center  font-bold">Chest</p>
-        </a>
-        <div class="card w-[104px] flex bg-[#63c9a5] border-solid border-2 border-gray-00 flex-col mr-5 my-3 items-center justify-between rounded-md p-2" shadow-md [routerLink]='["/exercices-list/back"]'>
-            <img src="./../../assets/bodyPart/back.png" class="m-auto" />
-            <p class="text-center font-bold">Back</p>
+    <h1 class="mx-[12px] text-[20px] font-bold my-2">Today :</h1>
+    <a [routerLink]='["/tabs/tab2"]'>
+        <div class="bg-[#CFF8EB] w-[355px] mx-auto flex p-2 rounded-lg">
+            <img src="./../../assets/img/home_calendar.png" />
+            <p class="font-bold my-auto ml-4">{{day}}</p>
         </div>
-        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/upper%20legs"]'>
-            <img src="./../../assets/bodyPart/legs.png" class="m-auto" />
-            <p class="text-center font-bold">Legs</p>
-        </div>
-        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/upper%20legs"]'>
-            <img src="./../../assets/b1/shoulder.png" class="m-auto w-[64px]" />
-            <p class="text-center font-bold">shoulder</p>
-        </div>
-        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/waist"]'>
-            <img src="./../../assets/bodyPart/abs.png" class="m-auto" />
-            <p class="text-center font-bold">Waist</p>
-        </div>
-        <div class="card w-[104px] flex bg-[#63c9a5] flex-col mr-5 my-3 items-center justify-between rounded-md p-2 shadow-md" [routerLink]='["/exercices-list/upper%20arms"]'>
-            <img src="./../../assets/bodyPart/arms.png" class="m-auto" />
-            <p class="text-center font-bold">Arms</p>
-        </div>
-    </div>
+    </a>
+
+
 </ion-content>
