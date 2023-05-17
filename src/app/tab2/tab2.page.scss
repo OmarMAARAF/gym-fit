@@ -78,3 +78,86 @@ ion-col {
         }
     }
 }
+
+ion-datetime {
+    --background: #73E8C1;
+    --background-rgb: 40, 186, 98;
+    border-radius: 10px;
+    box-shadow: rgba(var(--ion-color-rose-rgb), 0.3) 0px 10px 15px -3px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+    width: 90%;
+    background-color: aquamarine;
+}
+
+th {
+    font-weight: bold;
+}
+
+th,
+td {
+    padding: 8px;
+}
+
+td.today {
+    background-color: #ccc;
+}
+
+td.selected {
+    background-color: #eee;
+    font-weight: bold;
+}
+
+.arrow {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ccc;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+        background-color: #ccc;
+    }
+}
+
+tr:nth-child(n+2) {
+    display: none;
+}
+
+.date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.date-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.date-number {
+    font-size: 18px;
+}
+
+.current-day .date-circle {
+    background-color: #4de9b2;
+    border: 2px solid #4de9b2;
+    color: white;
+}
+
+.clicked-day .date-circle {
+    background-color: #4de9b2;
+    border: 2px solid #4de9b2;
+    color: white;
+}
