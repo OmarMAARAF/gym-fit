@@ -9,7 +9,7 @@ import {Exercice} from "../services/Exercice"
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page implements OnInit {
-  loading : boolean = false;
+  loading : boolean = true;
   @ViewChild('canvas') canvas: ElementRef;
   onGifLoad(event: Event, exercice: Exercice) {
     const img = event.target as HTMLImageElement;
@@ -42,6 +42,7 @@ export class Tab3Page implements OnInit {
           this.ExeciseList.push(a)
         });
         console.log("exercice List ",this.ExeciseList)
+        this.loading = false;
       });
   }
 }
