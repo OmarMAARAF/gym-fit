@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { ExercicesListPageRoutingModule } from './exercices-list-routing.module';
 
 import { ExercicesListPage } from './exercices-list.page';
-import {ExerciceItemComponent} from "./exercice-item/exercice-item.component"
 
 @NgModule({
   imports: [
@@ -17,6 +16,6 @@ import {ExerciceItemComponent} from "./exercice-item/exercice-item.component"
     ExercicesListPageRoutingModule,
     
   ],
-  declarations: [ExercicesListPage,ExerciceItemComponent]
+  declarations: [ExercicesListPage]
 })
 export class ExercicesListPageModule {}
