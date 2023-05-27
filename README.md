@@ -21,7 +21,7 @@
     <li><strong>Android & IOS:</strong> The GymFif mobile app can be downloaded and installed on Android and IOS.</li>
     <li><strong>Local Machine:</strong> To clone and run the app on your local machine, follow these steps:
       <ol>
-        <li>Clone the repository: <code>git clone https://github.com/your-username/gymfif.git](https://github.com/OmarMAARAF/gym-fit</code></li>
+        <li>Clone the repository: <code>git clone https://github.com/OmarMAARAF/gym-fit</code></li>
         <li>Install dependencies: <code>npm install --force</code></li>
         <li>Run the app locally: <code>ionic serve</code></li>
         <li>Access the app in your browser at <code>http://localhost:8100</code></li>
