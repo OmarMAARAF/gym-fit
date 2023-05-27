@@ -1,8 +1,8 @@
-  <h1>GymFif Mobile App</h1>
+  <h1>GymFit Mobile App</h1>
 
   <h2>Description</h2>
   <img src="screenshot/1.png" alt="GymFif Mobile App Screenshot" style="max-width: 100%;margin: 4px 0;">
-  <p>GymFif is a cross-platform mobile application designed to assist users in their fitness journey. The app offers a comprehensive range of features, including exercise search, workout program planning, bookmarking, and login functionality. Developed using Ionic Angular framework and integrated with the ExerciseDb API and Firebase for authentication, GymFif provides a seamless and user-friendly experience for fitness enthusiasts.</p>
+  <p>GymFit is a cross-platform mobile application designed to assist users in their fitness journey. The app offers a comprehensive range of features, including exercise search, workout program planning, bookmarking, and login functionality. Developed using Ionic Angular framework and integrated with the ExerciseDb API and Firebase for authentication, GymFif provides a seamless and user-friendly experience for fitness enthusiasts.</p>
 
   <h2>Features</h2>
   <img src="screenshot/2.png" alt="GymFif Mobile App Screenshot" style="max-width: 100%;margin: 4px 0;">
