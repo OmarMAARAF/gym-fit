@@ -7,7 +7,7 @@
   <h2>Features</h2>
   <img src="screenshot/2.png" alt="GymFit Mobile App Screenshot" style="max-width: 100%;margin: 4px 0;">
 <ol>
-  <li><strong>Login Service with Firebase:</strong> GymFit incorporates Firebase authentication to enable secure user login and personalized experiences.</li>
+  <li><strong>Login Service with Firebase:</strong> GymFit utilizes Firebase authentication to facilitate secure user login and provide personalized experiences.</li>
   <li><strong>Exercise Search:</strong> Users can search for gym exercises using various criteria, such as exercise name, body part targeted, or equipment required. This feature allows users to easily find exercises that suit their specific fitness goals.</li>
   <li><strong>PPL Workout Calendar:</strong> GymFit provides a pre-built calendar featuring the popular PPL (Push, Pull, Legs) workout program. Users can refer to the calendar to track their progress and plan their workout routines effectively.</li>
   <li><strong>Bookmark Functionality:</strong> GymFit allows users to bookmark exercises of interest. This feature enables users to save exercises and access them later for quick reference, ensuring a seamless workout experience.</li>
