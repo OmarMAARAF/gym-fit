@@ -1,6 +1,6 @@
   <h1>GymFit Mobile App </h1>
   
-  <h2>Description</h2>
+  <h2>Description </h2>
   <img src="screenshot/1.png" alt="GymFit Mobile App Screenshot" style="max-width: 100%;margin: 4px 0;">
   <p>GymFit is a cross-platform mobile application designed to assist users in their fitness journey. The app offers a comprehensive range of features, including exercise search, workout program planning, bookmarking, and login functionality. Developed using Ionic Angular framework and integrated with the ExerciseDb API and Firebase for authentication, GymFit provides a seamless and user-friendly experience for fitness enthusiasts.</p>
 
